@@ -137,43 +137,83 @@
         </div>
     </div>
 
-    <script>
-        function checkAccess() {
-            var val = document.getElementById('pw').value;
-            if (val === "WP2025") {
-                document.getElementById('sec-login').classList.remove('active-section');
-                document.getElementById('nav-bar').classList.remove('hidden');
-                showSection('intro');
-            } else {
-                alert("Access Denied: Please check your invitation code.");
-            }
-        }
+ /* WHITEPAPER UNIVERSAL ACCESS SCRIPT 
+   This version is designed to bypass common copy-paste errors.
+*/
 
-        function showSection(id, category) {
-            var sections = document.querySelectorAll('.page-section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove('active-section');
-            }
-            document.getElementById('sec-' + id).classList.add('active-section');
-            if (category) {
-                document.getElementById('gallery-title').innerText = category === 'domestic' ? 'Domestic Projects' : 'Overseas Projects';
-            }
-            window.scrollTo(0, 0);
-        }
+// 1. Listen for the "Enter" key so you don't even have to click the button
+document.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        checkAccess();
+    }
+});
 
-        function openDetail(title, style, format, length, status) {
-            document.getElementById('detail-title').innerText = title;
-            document.getElementById('detail-style').innerText = style;
-            document.getElementById('detail-format').innerText = format;
-            document.getElementById('detail-status').innerText = status;
-            document.getElementById('detail-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
+function checkAccess() {
+    // Get the input element
+    var inputField = document.getElementById('pw');
+    var enteredCode = inputField.value.trim(); // .trim() removes accidental spaces
 
-        function closeDetail() {
-            document.getElementById('detail-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
+    console.log("Attempting login with code: " + enteredCode); // Debugging line
+
+    // Hardcoded check: WP2025
+    if (enteredCode === "WP2025" || enteredCode === "wp2025") {
+        console.log("Access Granted");
+        
+        // Hide Login Screen
+        document.getElementById('sec-login').style.display = 'none';
+        document.getElementById('sec-login').classList.remove('active-section');
+        
+        // Show Navigation
+        var nav = document.getElementById('nav-bar');
+        nav.classList.remove('hidden');
+        nav.style.display = 'flex';
+        
+        // Load Intro Page
+        showSection('intro');
+    } else {
+        alert("Access Denied. Tip: Use 'WP2025'");
+    }
+}
+
+function showSection(id, category) {
+    // Hide all sections
+    var sections = document.querySelectorAll('.page-section');
+    sections.forEach(function(sec) {
+        sec.style.display = 'none';
+        sec.classList.remove('active-section');
+    });
+
+    // Show the target section
+    var target = document.getElementById('sec-' + id);
+    if (target) {
+        target.style.display = 'block';
+        target.classList.add('active-section');
+    }
+
+    // Update Gallery Title if needed
+    if (category && document.getElementById('gallery-title')) {
+        document.getElementById('gallery-title').innerText = 
+            category === 'domestic' ? 'Domestic Projects' : 'Overseas Projects';
+    }
+    
+    window.scrollTo(0, 0);
+}
+
+function openDetail(title, style, format, length, status) {
+    document.getElementById('detail-title').innerText = title;
+    document.getElementById('detail-style').innerText = style;
+    document.getElementById('detail-format').innerText = format;
+    document.getElementById('detail-status').innerText = status;
+    document.getElementById('detail-modal').style.display = 'block';
+    document.getElementById('detail-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeDetail() {
+    document.getElementById('detail-modal').style.display = 'none';
+    document.getElementById('detail-modal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
 </body>
 </html>
+

@@ -47,16 +47,11 @@
             <h2 class="text-blue-500 font-bold tracking-[0.5em] uppercase text-xs">A Private Curation Lab</h2>
             <h1 class="text-7xl md:text-9xl font-black italic leading-none uppercase tracking-tighter">THE NEXT <br>CANVAS.</h1>
             <p class="text-xl md:text-3xl text-gray-400 font-light max-w-4xl leading-relaxed">
-                We curate high-potential animation IPs in development. From Seoul to the world, 
-                discover the projects shaping the future of the industry.
+                We curate high-potential animation IPs in development. From Seoul to the world, discovery begins here.
             </p>
             <div class="pt-12 flex gap-6">
-                <button onclick="showSection('gallery', 'domestic')" class="px-10 py-5 bg-white text-black font-black uppercase text-xs tracking-widest rounded-full hover:bg-blue-600 hover:text-white transition">
-                    Explore Domestic
-                </button>
-                <button onclick="showSection('gallery', 'overseas')" class="px-10 py-5 border border-white/20 text-white font-black uppercase text-xs tracking-widest rounded-full hover:bg-white/10 transition">
-                    Explore Overseas
-                </button>
+                <button onclick="showSection('gallery', 'domestic')" class="px-10 py-5 bg-white text-black font-black uppercase text-xs tracking-widest rounded-full hover:bg-blue-600 hover:text-white transition">Explore Domestic</button>
+                <button onclick="showSection('gallery', 'overseas')" class="px-10 py-5 border border-white/20 text-white font-black uppercase text-xs tracking-widest rounded-full hover:bg-white/10 transition">Explore Overseas</button>
             </div>
         </div>
     </section>
@@ -68,24 +63,7 @@
                     <h4 class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-4">Search Archive</h4>
                     <input type="text" placeholder="Keywords..." class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:outline-none focus:border-blue-500">
                 </div>
-                <div>
-                    <h4 class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-4">Technical Style</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="filter-chip active">All</span>
-                        <span class="filter-chip">2D Cell</span>
-                        <span class="filter-chip">3D CGI</span>
-                        <span class="filter-chip">Toon-Shade</span>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-4">Stage</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="filter-chip">Pre-Prod</span>
-                        <span class="filter-chip">Financing</span>
-                    </div>
-                </div>
             </aside>
-
             <main class="flex-1 pb-32">
                 <h2 id="gallery-title" class="text-4xl font-black italic uppercase mb-12">Domestic Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -94,10 +72,6 @@
                             <img src="https://images.unsplash.com/photo-1541560052-5e137f229371?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
                         </div>
                         <div class="p-8">
-                            <div class="flex justify-between items-center mb-3">
-                                <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest">Studio Gwanghwa</span>
-                                <span class="text-[9px] px-2 py-0.5 border border-white/20 rounded-md">2D CELL</span>
-                            </div>
                             <h3 class="text-2xl font-black italic uppercase tracking-tighter">Project Haechi</h3>
                         </div>
                     </div>
@@ -107,113 +81,62 @@
     </section>
 
     <div id="detail-modal" class="fixed inset-0 z-[150] bg-black hidden overflow-y-auto">
-        <div class="min-h-screen flex flex-col">
-            <div class="h-[60vh] relative">
-                <button onclick="closeDetail()" class="fixed top-8 left-8 z-[160] glass px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition cursor-pointer">← Close Project</button>
-                <img id="detail-img" src="https://images.unsplash.com/photo-1541560052-5e137f229371?auto=format&fit=crop&w=1600&q=80" class="w-full h-full object-cover opacity-60">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
-                <div class="absolute bottom-16 left-10 lg:left-20">
-                    <h1 id="detail-title" class="text-7xl lg:text-[10rem] font-black italic uppercase leading-none tracking-tighter">PROJECT</h1>
-                </div>
-            </div>
-
-            <div class="max-w-6xl mx-auto px-10 py-20 w-full grid grid-cols-1 lg:grid-cols-3 gap-20">
-                <div class="lg:col-span-2 space-y-12">
-                    <p class="text-3xl font-light leading-relaxed text-gray-300">
-                        This project explores a unique visual language, blending historical Korean motifs with contemporary urban storytelling.
-                    </p>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-10 border-t border-white/10 pt-12">
-                        <div><p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">Technical Style</p><p id="detail-style" class="font-bold text-lg">-</p></div>
-                        <div><p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">Format</p><p id="detail-format" class="font-bold text-lg">-</p></div>
-                        <div><p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">Status</p><p id="detail-status" class="font-bold text-lg text-blue-400">-</p></div>
-                    </div>
-                </div>
-                <div class="glass p-10 rounded-[2rem] h-fit sticky top-10">
-                    <h4 class="text-xs font-black uppercase tracking-widest mb-6">Partnership</h4>
-                    <button class="w-full bg-white text-black font-black py-5 rounded-2xl text-[10px] uppercase tracking-widest hover:bg-blue-600 hover:text-white transition mb-4">Download Deck</button>
-                    <button class="w-full border border-white/10 text-white font-black py-5 rounded-2xl text-[10px] uppercase tracking-widest hover:bg-white/5 transition">Contact Studio</button>
-                </div>
+        <div class="min-h-screen flex flex-col p-10">
+            <button onclick="closeDetail()" class="glass px-8 py-3 rounded-full text-[10px] font-black uppercase mb-10 w-fit">← Close</button>
+            <h1 id="detail-title" class="text-7xl font-black italic uppercase">TITLE</h1>
+            <div class="mt-10 grid grid-cols-3 gap-10">
+                <div><p class="text-xs text-gray-500 uppercase">Style</p><p id="detail-style" class="text-xl font-bold">-</p></div>
+                <div><p class="text-xs text-gray-500 uppercase">Format</p><p id="detail-format" class="text-xl font-bold">-</p></div>
+                <div><p class="text-xs text-gray-500 uppercase">Status</p><p id="detail-status" class="text-xl font-bold text-blue-400">-</p></div>
             </div>
         </div>
     </div>
 
- /* WHITEPAPER UNIVERSAL ACCESS SCRIPT 
-   This version is designed to bypass common copy-paste errors.
-*/
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') { checkAccess(); }
+        });
 
-// 1. Listen for the "Enter" key so you don't even have to click the button
-document.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        checkAccess();
-    }
-});
+        function checkAccess() {
+            var inputField = document.getElementById('pw');
+            var enteredCode = inputField.value.trim();
 
-function checkAccess() {
-    // Get the input element
-    var inputField = document.getElementById('pw');
-    var enteredCode = inputField.value.trim(); // .trim() removes accidental spaces
+            if (enteredCode === "WP2025" || enteredCode === "wp2025") {
+                document.getElementById('sec-login').style.display = 'none';
+                document.getElementById('nav-bar').classList.remove('hidden');
+                document.getElementById('nav-bar').style.display = 'flex';
+                showSection('intro');
+            } else {
+                alert("Access Denied. Use 'WP2025'");
+            }
+        }
 
-    console.log("Attempting login with code: " + enteredCode); // Debugging line
+        function showSection(id, category) {
+            document.querySelectorAll('.page-section').forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+            var target = document.getElementById('sec-' + id);
+            if (target) { target.style.display = 'block'; }
 
-    // Hardcoded check: WP2025
-    if (enteredCode === "WP2025" || enteredCode === "wp2025") {
-        console.log("Access Granted");
-        
-        // Hide Login Screen
-        document.getElementById('sec-login').style.display = 'none';
-        document.getElementById('sec-login').classList.remove('active-section');
-        
-        // Show Navigation
-        var nav = document.getElementById('nav-bar');
-        nav.classList.remove('hidden');
-        nav.style.display = 'flex';
-        
-        // Load Intro Page
-        showSection('intro');
-    } else {
-        alert("Access Denied. Tip: Use 'WP2025'");
-    }
-}
+            if (category) {
+                document.getElementById('gallery-title').innerText = category === 'domestic' ? 'Domestic Projects' : 'Overseas Projects';
+            }
+            window.scrollTo(0, 0);
+        }
 
-function showSection(id, category) {
-    // Hide all sections
-    var sections = document.querySelectorAll('.page-section');
-    sections.forEach(function(sec) {
-        sec.style.display = 'none';
-        sec.classList.remove('active-section');
-    });
+        function openDetail(title, style, format, length, status) {
+            document.getElementById('detail-title').innerText = title;
+            document.getElementById('detail-style').innerText = style;
+            document.getElementById('detail-format').innerText = format;
+            document.getElementById('detail-status').innerText = status;
+            document.getElementById('detail-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-    // Show the target section
-    var target = document.getElementById('sec-' + id);
-    if (target) {
-        target.style.display = 'block';
-        target.classList.add('active-section');
-    }
-
-    // Update Gallery Title if needed
-    if (category && document.getElementById('gallery-title')) {
-        document.getElementById('gallery-title').innerText = 
-            category === 'domestic' ? 'Domestic Projects' : 'Overseas Projects';
-    }
-    
-    window.scrollTo(0, 0);
-}
-
-function openDetail(title, style, format, length, status) {
-    document.getElementById('detail-title').innerText = title;
-    document.getElementById('detail-style').innerText = style;
-    document.getElementById('detail-format').innerText = format;
-    document.getElementById('detail-status').innerText = status;
-    document.getElementById('detail-modal').style.display = 'block';
-    document.getElementById('detail-modal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeDetail() {
-    document.getElementById('detail-modal').style.display = 'none';
-    document.getElementById('detail-modal').classList.add('hidden');
-    document.body.style.overflow = 'auto';
-}
+        function closeDetail() {
+            document.getElementById('detail-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 </body>
 </html>
-

@@ -101,7 +101,7 @@
                             <h3 class="text-2xl font-black italic uppercase tracking-tighter">Project Haechi</h3>
                         </div>
                     </div>
-                    </div>
+                </div>
             </main>
         </div>
     </section>
@@ -139,21 +139,26 @@
 
     <script>
         function checkAccess() {
-            const val = document.getElementById('pw').value;
-            if(val === "WP2025") {
+            var val = document.getElementById('pw').value;
+            if (val === "WP2025") {
                 document.getElementById('sec-login').classList.remove('active-section');
                 document.getElementById('nav-bar').classList.remove('hidden');
                 showSection('intro');
-            } else { alert("Access Denied: Please check your invitation code."); }
+            } else {
+                alert("Access Denied: Please check your invitation code.");
+            }
         }
 
         function showSection(id, category) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-section'));
+            var sections = document.querySelectorAll('.page-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active-section');
+            }
             document.getElementById('sec-' + id).classList.add('active-section');
-            if(category) {
+            if (category) {
                 document.getElementById('gallery-title').innerText = category === 'domestic' ? 'Domestic Projects' : 'Overseas Projects';
             }
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
         }
 
         function openDetail(title, style, format, length, status) {
@@ -167,8 +172,4 @@
 
         function closeDetail() {
             document.getElementById('detail-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
-</body>
-</html>
+            document.body
